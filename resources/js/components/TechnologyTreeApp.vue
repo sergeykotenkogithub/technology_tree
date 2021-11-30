@@ -1,11 +1,24 @@
 <template>
-<h2>Technology Tree</h2>
+    <div>
+<landing-page/>
+    </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+import LandingPage from '../Pages/LandingPage.vue';
+
+export default {
+
+    components: { LandingPage, },
+
+    setup () {
+
+
+        return {}
     }
+}
 </script>
+
+<style lang="scss" scoped>
+
+</style>
