@@ -1,3 +1,1 @@
 # technology_tree
-
-AndreY
