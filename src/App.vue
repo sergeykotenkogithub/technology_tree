@@ -29,7 +29,7 @@ html {
 
 body {
   min-height: 100%;
-  background: #e8e8e8;
+  background: #e6e7ee;
   color: #44476a;
 }
 
@@ -113,5 +113,9 @@ table {
       color: #000142;
     }
   }
+}
+
+.icon {
+  font-size: 14px;
 }
 </style>
