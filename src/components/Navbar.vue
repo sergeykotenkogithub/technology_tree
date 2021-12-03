@@ -31,12 +31,13 @@ export default {
 
 <style scoped lang="scss">
 .navbar {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   border: none;
-  background: rgba(230, 230, 230, 1);
+  background: #e6e7ee;
   box-shadow: 5px 5px 8px #c4c4c4, -5px -5px 8px #ffffff;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   // .nav__link {
