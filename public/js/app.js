@@ -3448,6 +3448,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue_tree_chart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-tree-chart */ "./node_modules/vue-tree-chart/dist/TreeChart.common.js");
 /* harmony import */ var vue_tree_chart__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_tree_chart__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -3482,6 +3484,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     TreeChart: (vue_tree_chart__WEBPACK_IMPORTED_MODULE_0___default())
@@ -3493,57 +3496,101 @@ __webpack_require__.r(__webpack_exports__);
       loader: null,
       treeData: {
         name: 'Frontend',
-        image_url: "./images/frontend.jpg",
+        image_url: "./assets/img/tree/frontend.jpg",
         "class": ["rootNode"],
         children: [{
           name: 'HTML',
-          image_url: "./images/html.svg"
+          image_url: "./assets/img/tree/html.svg"
         }, {
           name: 'CSS',
-          image_url: "./images/css.svg",
+          image_url: "./assets/img/tree/css.svg",
           children: [{
-            name: 'Preprocessors',
-            image_url: "./images/preproccesor.jpg"
+            name: 'Препроцессоры',
+            image_url: "./assets/img/tree/preproccesor.jpg",
+            children: [{
+              name: 'SASS/SCSS',
+              image_url: "./assets/img/tree/preproccesor.jpg"
+            }, {
+              name: 'PostCSS',
+              image_url: "./assets/img/tree/framework.jpg"
+            }, {
+              name: 'Less',
+              image_url: "./assets/img/tree/methodology.jpg"
+            }]
           }, {
-            name: 'Frameworks',
-            image_url: "./images/framework.jpg"
+            name: 'Фреймворки',
+            image_url: "./assets/img/tree/framework.jpg",
+            children: [{
+              name: 'Bootstrap',
+              image_url: "./assets/img/tree/preproccesor.jpg"
+            }, {
+              name: 'Materialize',
+              image_url: "./assets/img/tree/framework.jpg"
+            }, {
+              name: 'Bulma',
+              image_url: "./assets/img/tree/methodology.jpg"
+            }, {
+              name: 'Tailwind',
+              image_url: "./assets/img/tree/methodology.jpg"
+            }]
           }, {
-            name: 'Methodology',
-            image_url: "./images/methodology.jpg"
+            name: 'Методологии',
+            image_url: "./assets/img/tree/methodology.jpg",
+            children: [{
+              name: 'БЭМ',
+              image_url: "./assets/img/tree/preproccesor.jpg"
+            }, {
+              name: 'Atomic',
+              image_url: "./assets/img/tree/framework.jpg"
+            }, {
+              name: 'SMACSS',
+              image_url: "./assets/img/tree/methodology.jpg"
+            }]
           }]
         }, {
           name: 'JS',
-          image_url: "./images/js.svg"
-        }, {
-          name: 'Инструменты',
-          image_url: "./images/tools.svg",
-          children: [{
-            name: 'NPM',
-            image_url: "./images/preproccesor.jpg"
-          }, {
-            name: 'Webpack',
-            image_url: "./images/framework.jpg"
-          }, {
-            name: 'Parcel',
-            image_url: "./images/methodology.jpg"
-          }]
-        }, {
-          name: 'Testing',
-          image_url: "./images/test.svg"
-        }, {
-          name: 'Optimization',
-          image_url: "./images/optimization.svg"
-        }, {
-          name: 'Work',
-          image_url: "./images/work.svg",
-          children: [{
-            name: 'Frontend',
-            image_url: "./images/preproccesor.jpg"
-          }, {
-            name: 'JavaScript',
-            image_url: "./images/framework.jpg"
-          }]
-        }]
+          image_url: "./assets/img/tree/js.svg"
+        } // {
+        //     name: 'Инструменты',
+        //     image_url: "./assets/img/tree/tools.svg",
+        //     children: [
+        //         {
+        //             name: 'NPM',
+        //             image_url: "./assets/img/tree/preproccesor.jpg"
+        //         },
+        //         {
+        //             name: 'Webpack',
+        //             image_url: "./assets/img/tree/framework.jpg"
+        //         },
+        //         {
+        //             name: 'Parcel',
+        //             image_url: "./assets/img/tree/methodology.jpg"
+        //         }
+        //     ]
+        // },
+        // {
+        //     name: 'Testing',
+        //     image_url: "./assets/img/tree/test.svg",
+        // },
+        // {
+        //     name: 'Optimization',
+        //     image_url: "./assets/img/tree/optimization.svg",
+        // },
+        // {
+        //     name: 'Work',
+        //     image_url: "./assets/img/tree/work.svg",
+        //     children: [
+        //         {
+        //             name: 'Frontend',
+        //             image_url: "./assets/img/tree/preproccesor.jpg"
+        //         },
+        //         {
+        //             name: 'JavaScript',
+        //             image_url: "./assets/img/tree/framework.jpg"
+        //         },
+        //     ]
+        // }
+        ]
       }
     };
   },
@@ -3574,7 +3621,7 @@ __webpack_require__.r(__webpack_exports__);
     loadInfo: function loadInfo(nameTechnology) {
       var _this2 = this;
 
-      axios.get("/technology/".concat(nameTechnology, "/export")).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/technology/".concat(nameTechnology, "/export")).then(function (res) {
         _this2.infoTechnologyVideo = res.data[0].video;
         console.log(_this2.infoTechnologyVideo);
         _this2.loader = true;
@@ -8526,7 +8573,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".node .person .avat img {\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.node {\n  cursor: pointer;\n}\n.popup {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  right: 0;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(72, 72, 76, 0.68);\n  z-index: 500;\n  overflow: auto;\n}\n.popup-wrapper {\n  background: white;\n  padding: 100px;\n  border-radius: 10%;\n}\n.video_link {\n  font-size: 20px;\n  margin: 20px 0px;\n}\n.node .person {\n  width: 7em !important;\n}\n.lds-default {\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.lds-default div {\n  position: absolute;\n  width: 6px;\n  height: 6px;\n  background: #fff;\n  border-radius: 50%;\n  -webkit-animation: lds-default 1.2s linear infinite;\n          animation: lds-default 1.2s linear infinite;\n}\n.lds-default div:nth-child(1) {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n  top: 37px;\n  left: 66px;\n}\n.lds-default div:nth-child(2) {\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n  top: 22px;\n  left: 62px;\n}\n.lds-default div:nth-child(3) {\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n  top: 11px;\n  left: 52px;\n}\n.lds-default div:nth-child(4) {\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n  top: 7px;\n  left: 37px;\n}\n.lds-default div:nth-child(5) {\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n  top: 11px;\n  left: 22px;\n}\n.lds-default div:nth-child(6) {\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n  top: 22px;\n  left: 11px;\n}\n.lds-default div:nth-child(7) {\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n  top: 37px;\n  left: 7px;\n}\n.lds-default div:nth-child(8) {\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n  top: 52px;\n  left: 11px;\n}\n.lds-default div:nth-child(9) {\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n  top: 62px;\n  left: 22px;\n}\n.lds-default div:nth-child(10) {\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n  top: 66px;\n  left: 37px;\n}\n.lds-default div:nth-child(11) {\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n  top: 62px;\n  left: 52px;\n}\n.lds-default div:nth-child(12) {\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n  top: 52px;\n  left: 62px;\n}\n@-webkit-keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n@keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n.popup-wrapper {\n  display: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".node .person .avat img {\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.node {\n  cursor: pointer;\n}\n.popup {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  right: 0;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(72, 72, 76, 0.68);\n  z-index: 500;\n  overflow: auto;\n}\n.popup-wrapper {\n  background: white;\n  padding: 100px;\n  border-radius: 10%;\n}\n.video_link {\n  font-size: 20px;\n  margin: 20px 0px;\n}\n.node .person {\n  width: 9em !important;\n}\n.lds-default {\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.lds-default div {\n  position: absolute;\n  width: 6px;\n  height: 6px;\n  background: #fff;\n  border-radius: 50%;\n  -webkit-animation: lds-default 1.2s linear infinite;\n          animation: lds-default 1.2s linear infinite;\n}\n.lds-default div:nth-child(1) {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n  top: 37px;\n  left: 66px;\n}\n.lds-default div:nth-child(2) {\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n  top: 22px;\n  left: 62px;\n}\n.lds-default div:nth-child(3) {\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n  top: 11px;\n  left: 52px;\n}\n.lds-default div:nth-child(4) {\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n  top: 7px;\n  left: 37px;\n}\n.lds-default div:nth-child(5) {\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n  top: 11px;\n  left: 22px;\n}\n.lds-default div:nth-child(6) {\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n  top: 22px;\n  left: 11px;\n}\n.lds-default div:nth-child(7) {\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n  top: 37px;\n  left: 7px;\n}\n.lds-default div:nth-child(8) {\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n  top: 52px;\n  left: 11px;\n}\n.lds-default div:nth-child(9) {\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n  top: 62px;\n  left: 22px;\n}\n.lds-default div:nth-child(10) {\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n  top: 66px;\n  left: 37px;\n}\n.lds-default div:nth-child(11) {\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n  top: 62px;\n  left: 52px;\n}\n.lds-default div:nth-child(12) {\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n  top: 52px;\n  left: 62px;\n}\n@-webkit-keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n@keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n.popup-wrapper {\n  display: none;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

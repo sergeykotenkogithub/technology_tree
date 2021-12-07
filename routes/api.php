@@ -39,5 +39,5 @@ Route::get("all",function(){
     // ]);
 });
 
-// Route::resource('tree',TreeController::class);
+// Route::resource('tree',TechnologyController::class);
 // Route::resource('technology',TechnologyController::class)->parameters(['technology' => 'name']);

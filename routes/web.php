@@ -12,6 +12,8 @@ use App\Http\Controllers\SpaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('technology/{technology}/export', [App\Http\Controllers\TechnologyController::class, 'export']);
+
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 
 Route::get('/', function () {
@@ -21,4 +23,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('technology/{technology}/export', [App\Http\Controllers\TechnologyController::class, 'export']);

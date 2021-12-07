@@ -33,6 +33,7 @@
 
 <script>
 import TreeChart from "vue-tree-chart";
+import axios from 'axios';
 export default {
     components: {
         TreeChart
@@ -46,75 +47,121 @@ export default {
             treeData:
                 {
                     name: 'Frontend',
-                    image_url: "./images/frontend.jpg",
+                    image_url: "./assets/img/tree/frontend.jpg",
                     class: ["rootNode"],
                     children: [
                         {
                             name: 'HTML',
-                            image_url: "./images/html.svg",
+                            image_url: "./assets/img/tree/html.svg",
                         },
                         {
                             name: 'CSS',
-                            image_url: "./images/css.svg",
+                            image_url: "./assets/img/tree/css.svg",
                             children: [
                                 {
-                                    name: 'Preprocessors',
-                                    image_url: "./images/preproccesor.jpg"
+                                    name: 'Препроцессоры',
+                                    image_url: "./assets/img/tree/preproccesor.jpg",
+                                    children: [
+                                        {
+                                            name: 'SASS/SCSS',
+                                            image_url: "./assets/img/tree/preproccesor.jpg"
+                                        },
+                                        {
+                                            name: 'PostCSS',
+                                            image_url: "./assets/img/tree/framework.jpg"
+                                        },
+                                        {
+                                            name: 'Less',
+                                            image_url: "./assets/img/tree/methodology.jpg"
+                                        }
+                                    ]
                                 },
                                 {
-                                    name: 'Frameworks',
-                                    image_url: "./images/framework.jpg"
+                                    name: 'Фреймворки',
+                                    image_url: "./assets/img/tree/framework.jpg",
+                                    children: [
+                                        {
+                                            name: 'Bootstrap',
+                                            image_url: "./assets/img/tree/preproccesor.jpg"
+                                        },
+                                        {
+                                            name: 'Materialize',
+                                            image_url: "./assets/img/tree/framework.jpg"
+                                        },
+                                        {
+                                            name: 'Bulma',
+                                            image_url: "./assets/img/tree/methodology.jpg"
+                                        },
+                                        {
+                                            name: 'Tailwind',
+                                            image_url: "./assets/img/tree/methodology.jpg"
+                                        }
+                                    ]
                                 },
                                 {
-                                    name: 'Methodology',
-                                    image_url: "./images/methodology.jpg"
+                                    name: 'Методологии',
+                                    image_url: "./assets/img/tree/methodology.jpg",
+                                    children: [
+                                        {
+                                            name: 'БЭМ',
+                                            image_url: "./assets/img/tree/preproccesor.jpg"
+                                        },
+                                        {
+                                            name: 'Atomic',
+                                            image_url: "./assets/img/tree/framework.jpg"
+                                        },
+                                        {
+                                            name: 'SMACSS',
+                                            image_url: "./assets/img/tree/methodology.jpg"
+                                        }
+                                    ]
                                 }
                             ]
                         },
                         {
                             name: 'JS',
-                            image_url: "./images/js.svg",
+                            image_url: "./assets/img/tree/js.svg",
                         },
-                        {
-                            name: 'Инструменты',
-                            image_url: "./images/tools.svg",
-                            children: [
-                                {
-                                    name: 'NPM',
-                                    image_url: "./images/preproccesor.jpg"
-                                },
-                                {
-                                    name: 'Webpack',
-                                    image_url: "./images/framework.jpg"
-                                },
-                                {
-                                    name: 'Parcel',
-                                    image_url: "./images/methodology.jpg"
-                                }
-                            ]
-                        },
-                        {
-                            name: 'Testing',
-                            image_url: "./images/test.svg",
-                        },
-                        {
-                            name: 'Optimization',
-                            image_url: "./images/optimization.svg",
-                        },
-                        {
-                            name: 'Work',
-                            image_url: "./images/work.svg",
-                            children: [
-                                {
-                                    name: 'Frontend',
-                                    image_url: "./images/preproccesor.jpg"
-                                },
-                                {
-                                    name: 'JavaScript',
-                                    image_url: "./images/framework.jpg"
-                                },
-                            ]
-                        }
+                        // {
+                        //     name: 'Инструменты',
+                        //     image_url: "./assets/img/tree/tools.svg",
+                        //     children: [
+                        //         {
+                        //             name: 'NPM',
+                        //             image_url: "./assets/img/tree/preproccesor.jpg"
+                        //         },
+                        //         {
+                        //             name: 'Webpack',
+                        //             image_url: "./assets/img/tree/framework.jpg"
+                        //         },
+                        //         {
+                        //             name: 'Parcel',
+                        //             image_url: "./assets/img/tree/methodology.jpg"
+                        //         }
+                        //     ]
+                        // },
+                        // {
+                        //     name: 'Testing',
+                        //     image_url: "./assets/img/tree/test.svg",
+                        // },
+                        // {
+                        //     name: 'Optimization',
+                        //     image_url: "./assets/img/tree/optimization.svg",
+                        // },
+                        // {
+                        //     name: 'Work',
+                        //     image_url: "./assets/img/tree/work.svg",
+                        //     children: [
+                        //         {
+                        //             name: 'Frontend',
+                        //             image_url: "./assets/img/tree/preproccesor.jpg"
+                        //         },
+                        //         {
+                        //             name: 'JavaScript',
+                        //             image_url: "./assets/img/tree/framework.jpg"
+                        //         },
+                        //     ]
+                        // }
                     ]
                 }
         }
@@ -210,7 +257,7 @@ export default {
 }
 
 .node .person {
-    width: 7em !important;
+    width: 9em !important;
 }
 
 //
