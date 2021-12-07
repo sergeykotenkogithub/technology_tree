@@ -15,17 +15,26 @@
 
             <!--             <div class="popup-wrapper" v-if="loader">-->
             <div class="popup-wrapper">
-                <h1> {{ nameElement }} </h1>
-                <!--                <div>-->
-                <!--                    <h2> Книги:</h2>-->
-                <!--                    HTML and CSS: Design and Build Websites-->
-                <!--                </div>-->
-                <div>
+                <h1 class="popup-title"> {{ nameElement }} </h1>
+
+                <!--      Видео          -->
+
+                <div v-if="infoTechnologyVideo && infoTechnologyVideo.length > 0">
                     <h2> Видео:</h2>
                     <div v-for="item in infoTechnologyVideo" class="video_link">
                         <a :href="item.link" target="_blank"> {{ item.name_link }} </a>
                     </div>
                 </div>
+
+                <!--      Книги          -->
+
+                <div v-if="infoTechnologyBooks && infoTechnologyBooks.length > 0" >
+                    <h2> Книги:</h2>
+                    <div v-for="item in infoTechnologyBooks">
+                        <p>  {{ item.name }} </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -43,6 +52,7 @@ export default {
         return {
             nameElement: null,
             infoTechnologyVideo: null,
+            infoTechnologyBooks: null,
             loader: null,
             treeData:
                 {
@@ -57,10 +67,12 @@ export default {
                         {
                             name: 'CSS',
                             image_url: "./assets/img/tree/css.svg",
+                            extend: [false],
                             children: [
                                 {
                                     name: 'Препроцессоры',
                                     image_url: "./assets/img/tree/preproccesor.jpg",
+                                    extend: [false],
                                     children: [
                                         {
                                             name: 'SASS/SCSS',
@@ -121,6 +133,100 @@ export default {
                         {
                             name: 'JS',
                             image_url: "./assets/img/tree/js.svg",
+                            children: [
+                                {
+                                    name: 'Фреймворки',
+                                    image_url: "./assets/img/tree/preproccesor.jpg",
+                                    children: [
+                                        {
+                                            name: 'React.js',
+                                            image_url: "./assets/img/tree/preproccesor.jpg",
+                                            children: [
+                                                {
+                                                    name: 'Основы',
+                                                    image_url: "./assets/img/tree/preproccesor.jpg"
+                                                },
+                                                {
+                                                    name: 'Инструменты',
+                                                    image_url: "./assets/img/tree/framework.jpg",
+                                                    children: [
+                                                        {
+                                                            name: 'Роутер',
+                                                            image_url: "./assets/img/tree/preproccesor.jpg"
+                                                        },
+                                                        {
+                                                            name: 'CRA',
+                                                            image_url: "./assets/img/tree/framework.jpg"
+                                                        },
+                                                        {
+                                                            name: 'CRA',
+                                                            image_url: "./assets/img/tree/framework.jpg"
+                                                        },
+                                                        {
+                                                            name: 'Apollo',
+                                                            image_url: "./assets/img/tree/framework.jpg"
+                                                        },
+                                                        {
+                                                            name: 'Next.js',
+                                                            image_url: "./assets/img/tree/framework.jpg"
+                                                        },
+                                                        {
+                                                            name: 'Storybook',
+                                                            image_url: "./assets/img/tree/framework.jpg"
+                                                        },
+                                                        {
+                                                            name: 'Style',
+                                                            image_url: "./assets/img/tree/framework.jpg"
+                                                        },
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: 'Vue JS',
+                                            image_url: "./assets/img/tree/framework.jpg",
+                                            children: [
+                                                {
+                                                    name: 'Nuxt',
+                                                    image_url: "./assets/img/tree/preproccesor.jpg"
+                                                },
+                                                {
+                                                    name: 'Vues',
+                                                    image_url: "./assets/img/tree/framework.jpg"
+                                                },
+                                            ]
+                                        },
+                                        {
+                                            name: 'Модификаторы',
+                                            image_url: "./assets/img/tree/framework.jpg",
+                                            children: [
+                                                {
+                                                    name: 'MobX',
+                                                    image_url: "./assets/img/tree/preproccesor.jpg"
+                                                },
+                                                {
+                                                    name: 'Redux',
+                                                    image_url: "./assets/img/tree/framework.jpg"
+                                                },
+                                            ]
+                                        },
+                                    ]
+                                },
+                                {
+                                    name: 'Навыки',
+                                    image_url: "./assets/img/tree/framework.jpg",
+                                    children: [
+                                        {
+                                            name: 'TypeScript',
+                                            image_url: "./assets/img/tree/preproccesor.jpg"
+                                        },
+                                        {
+                                            name: 'Функционал',
+                                            image_url: "./assets/img/tree/framework.jpg"
+                                        },
+                                    ]
+                                },
+                            ]
                         },
                         // {
                         //     name: 'Инструменты',
@@ -194,11 +300,12 @@ export default {
             axios.get(`/technology/${nameTechnology}/export`)
                 .then(res => {
                     this.infoTechnologyVideo = res.data[0].video;
-                    console.log(this.infoTechnologyVideo)
+                    this.infoTechnologyBooks = res.data[0].books;
+                    console.log(res.data)
                     this.loader = true;
                     document.querySelector('.popup-wrapper').style.display = 'block';
                     document.querySelector('.lds-default').style.display = 'none';
-                    // console.log(this.infoTechnology)
+                    console.log(this.infoTechnologyBooks.length > 0)
                     // console.log(res.data[0].video)
                     // console.log(JSON.parse(res.data[0].video).name)
                     // console.log(res.data[0])
@@ -348,6 +455,11 @@ export default {
 
 .popup-wrapper {
     display: none;
+}
+
+.popup-title {
+    text-align: center;
+    padding-bottom: 30px;
 }
 
 

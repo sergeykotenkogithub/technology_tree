@@ -3483,6 +3483,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3493,6 +3502,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       nameElement: null,
       infoTechnologyVideo: null,
+      infoTechnologyBooks: null,
       loader: null,
       treeData: {
         name: 'Frontend',
@@ -3504,9 +3514,11 @@ __webpack_require__.r(__webpack_exports__);
         }, {
           name: 'CSS',
           image_url: "./assets/img/tree/css.svg",
+          extend: [false],
           children: [{
             name: 'Препроцессоры',
             image_url: "./assets/img/tree/preproccesor.jpg",
+            extend: [false],
             children: [{
               name: 'SASS/SCSS',
               image_url: "./assets/img/tree/preproccesor.jpg"
@@ -3549,7 +3561,74 @@ __webpack_require__.r(__webpack_exports__);
           }]
         }, {
           name: 'JS',
-          image_url: "./assets/img/tree/js.svg"
+          image_url: "./assets/img/tree/js.svg",
+          children: [{
+            name: 'Фреймворки',
+            image_url: "./assets/img/tree/preproccesor.jpg",
+            children: [{
+              name: 'React.js',
+              image_url: "./assets/img/tree/preproccesor.jpg",
+              children: [{
+                name: 'Основы',
+                image_url: "./assets/img/tree/preproccesor.jpg"
+              }, {
+                name: 'Инструменты',
+                image_url: "./assets/img/tree/framework.jpg",
+                children: [{
+                  name: 'Роутер',
+                  image_url: "./assets/img/tree/preproccesor.jpg"
+                }, {
+                  name: 'CRA',
+                  image_url: "./assets/img/tree/framework.jpg"
+                }, {
+                  name: 'CRA',
+                  image_url: "./assets/img/tree/framework.jpg"
+                }, {
+                  name: 'Apollo',
+                  image_url: "./assets/img/tree/framework.jpg"
+                }, {
+                  name: 'Next.js',
+                  image_url: "./assets/img/tree/framework.jpg"
+                }, {
+                  name: 'Storybook',
+                  image_url: "./assets/img/tree/framework.jpg"
+                }, {
+                  name: 'Style',
+                  image_url: "./assets/img/tree/framework.jpg"
+                }]
+              }]
+            }, {
+              name: 'Vue JS',
+              image_url: "./assets/img/tree/framework.jpg",
+              children: [{
+                name: 'Nuxt',
+                image_url: "./assets/img/tree/preproccesor.jpg"
+              }, {
+                name: 'Vues',
+                image_url: "./assets/img/tree/framework.jpg"
+              }]
+            }, {
+              name: 'Модификаторы',
+              image_url: "./assets/img/tree/framework.jpg",
+              children: [{
+                name: 'MobX',
+                image_url: "./assets/img/tree/preproccesor.jpg"
+              }, {
+                name: 'Redux',
+                image_url: "./assets/img/tree/framework.jpg"
+              }]
+            }]
+          }, {
+            name: 'Навыки',
+            image_url: "./assets/img/tree/framework.jpg",
+            children: [{
+              name: 'TypeScript',
+              image_url: "./assets/img/tree/preproccesor.jpg"
+            }, {
+              name: 'Функционал',
+              image_url: "./assets/img/tree/framework.jpg"
+            }]
+          }]
         } // {
         //     name: 'Инструменты',
         //     image_url: "./assets/img/tree/tools.svg",
@@ -3623,11 +3702,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("/technology/".concat(nameTechnology, "/export")).then(function (res) {
         _this2.infoTechnologyVideo = res.data[0].video;
-        console.log(_this2.infoTechnologyVideo);
+        _this2.infoTechnologyBooks = res.data[0].books;
+        console.log(res.data);
         _this2.loader = true;
         document.querySelector('.popup-wrapper').style.display = 'block';
-        document.querySelector('.lds-default').style.display = 'none'; // console.log(this.infoTechnology)
-        // console.log(res.data[0].video)
+        document.querySelector('.lds-default').style.display = 'none';
+        console.log(_this2.infoTechnologyBooks.length > 0); // console.log(res.data[0].video)
         // console.log(JSON.parse(res.data[0].video).name)
         // console.log(res.data[0])
         // let bb = this.infoTechnology [0].video
@@ -8573,7 +8653,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".node .person .avat img {\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.node {\n  cursor: pointer;\n}\n.popup {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  right: 0;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(72, 72, 76, 0.68);\n  z-index: 500;\n  overflow: auto;\n}\n.popup-wrapper {\n  background: white;\n  padding: 100px;\n  border-radius: 10%;\n}\n.video_link {\n  font-size: 20px;\n  margin: 20px 0px;\n}\n.node .person {\n  width: 9em !important;\n}\n.lds-default {\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.lds-default div {\n  position: absolute;\n  width: 6px;\n  height: 6px;\n  background: #fff;\n  border-radius: 50%;\n  -webkit-animation: lds-default 1.2s linear infinite;\n          animation: lds-default 1.2s linear infinite;\n}\n.lds-default div:nth-child(1) {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n  top: 37px;\n  left: 66px;\n}\n.lds-default div:nth-child(2) {\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n  top: 22px;\n  left: 62px;\n}\n.lds-default div:nth-child(3) {\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n  top: 11px;\n  left: 52px;\n}\n.lds-default div:nth-child(4) {\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n  top: 7px;\n  left: 37px;\n}\n.lds-default div:nth-child(5) {\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n  top: 11px;\n  left: 22px;\n}\n.lds-default div:nth-child(6) {\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n  top: 22px;\n  left: 11px;\n}\n.lds-default div:nth-child(7) {\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n  top: 37px;\n  left: 7px;\n}\n.lds-default div:nth-child(8) {\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n  top: 52px;\n  left: 11px;\n}\n.lds-default div:nth-child(9) {\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n  top: 62px;\n  left: 22px;\n}\n.lds-default div:nth-child(10) {\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n  top: 66px;\n  left: 37px;\n}\n.lds-default div:nth-child(11) {\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n  top: 62px;\n  left: 52px;\n}\n.lds-default div:nth-child(12) {\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n  top: 52px;\n  left: 62px;\n}\n@-webkit-keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n@keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n.popup-wrapper {\n  display: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".node .person .avat img {\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.node {\n  cursor: pointer;\n}\n.popup {\n  display: none;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  right: 0;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(72, 72, 76, 0.68);\n  z-index: 500;\n  overflow: auto;\n}\n.popup-wrapper {\n  background: white;\n  padding: 100px;\n  border-radius: 10%;\n}\n.video_link {\n  font-size: 20px;\n  margin: 20px 0px;\n}\n.node .person {\n  width: 9em !important;\n}\n.lds-default {\n  display: inline-block;\n  position: relative;\n  width: 80px;\n  height: 80px;\n}\n.lds-default div {\n  position: absolute;\n  width: 6px;\n  height: 6px;\n  background: #fff;\n  border-radius: 50%;\n  -webkit-animation: lds-default 1.2s linear infinite;\n          animation: lds-default 1.2s linear infinite;\n}\n.lds-default div:nth-child(1) {\n  -webkit-animation-delay: 0s;\n          animation-delay: 0s;\n  top: 37px;\n  left: 66px;\n}\n.lds-default div:nth-child(2) {\n  -webkit-animation-delay: -0.1s;\n          animation-delay: -0.1s;\n  top: 22px;\n  left: 62px;\n}\n.lds-default div:nth-child(3) {\n  -webkit-animation-delay: -0.2s;\n          animation-delay: -0.2s;\n  top: 11px;\n  left: 52px;\n}\n.lds-default div:nth-child(4) {\n  -webkit-animation-delay: -0.3s;\n          animation-delay: -0.3s;\n  top: 7px;\n  left: 37px;\n}\n.lds-default div:nth-child(5) {\n  -webkit-animation-delay: -0.4s;\n          animation-delay: -0.4s;\n  top: 11px;\n  left: 22px;\n}\n.lds-default div:nth-child(6) {\n  -webkit-animation-delay: -0.5s;\n          animation-delay: -0.5s;\n  top: 22px;\n  left: 11px;\n}\n.lds-default div:nth-child(7) {\n  -webkit-animation-delay: -0.6s;\n          animation-delay: -0.6s;\n  top: 37px;\n  left: 7px;\n}\n.lds-default div:nth-child(8) {\n  -webkit-animation-delay: -0.7s;\n          animation-delay: -0.7s;\n  top: 52px;\n  left: 11px;\n}\n.lds-default div:nth-child(9) {\n  -webkit-animation-delay: -0.8s;\n          animation-delay: -0.8s;\n  top: 62px;\n  left: 22px;\n}\n.lds-default div:nth-child(10) {\n  -webkit-animation-delay: -0.9s;\n          animation-delay: -0.9s;\n  top: 66px;\n  left: 37px;\n}\n.lds-default div:nth-child(11) {\n  -webkit-animation-delay: -1s;\n          animation-delay: -1s;\n  top: 62px;\n  left: 52px;\n}\n.lds-default div:nth-child(12) {\n  -webkit-animation-delay: -1.1s;\n          animation-delay: -1.1s;\n  top: 52px;\n  left: 62px;\n}\n@-webkit-keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n@keyframes lds-default {\n0%, 20%, 80%, 100% {\n    transform: scale(1);\n}\n50% {\n    transform: scale(1.5);\n}\n}\n.popup-wrapper {\n  display: none;\n}\n.popup-title {\n  text-align: center;\n  padding-bottom: 30px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38034,23 +38114,43 @@ var render = function () {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "popup-wrapper" }, [
-        _c("h1", [_vm._v(" " + _vm._s(_vm.nameElement) + " ")]),
+        _c("h1", { staticClass: "popup-title" }, [
+          _vm._v(" " + _vm._s(_vm.nameElement) + " "),
+        ]),
         _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c("h2", [_vm._v(" Видео:")]),
-            _vm._v(" "),
-            _vm._l(_vm.infoTechnologyVideo, function (item) {
-              return _c("div", { staticClass: "video_link" }, [
-                _c("a", { attrs: { href: item.link, target: "_blank" } }, [
-                  _vm._v(" " + _vm._s(item.name_link) + " "),
-                ]),
-              ])
-            }),
-          ],
-          2
-        ),
+        _vm.infoTechnologyVideo && _vm.infoTechnologyVideo.length > 0
+          ? _c(
+              "div",
+              [
+                _c("h2", [_vm._v(" Видео:")]),
+                _vm._v(" "),
+                _vm._l(_vm.infoTechnologyVideo, function (item) {
+                  return _c("div", { staticClass: "video_link" }, [
+                    _c("a", { attrs: { href: item.link, target: "_blank" } }, [
+                      _vm._v(" " + _vm._s(item.name_link) + " "),
+                    ]),
+                  ])
+                }),
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.infoTechnologyBooks && _vm.infoTechnologyBooks.length > 0
+          ? _c(
+              "div",
+              [
+                _c("h2", [_vm._v(" Книги:")]),
+                _vm._v(" "),
+                _vm._l(_vm.infoTechnologyBooks, function (item) {
+                  return _c("div", [
+                    _c("p", [_vm._v("  " + _vm._s(item.name) + " ")]),
+                  ])
+                }),
+              ],
+              2
+            )
+          : _vm._e(),
       ]),
     ]),
   ])

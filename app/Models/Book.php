@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Video extends Model
+class Book extends Model
 {
     use HasFactory;
-    protected $table = 'video';
+    protected $table = 'books';
 
-    public function video() : BelongsTo
+    public function books() : BelongsTo
     {
         return $this->belongsTo(Technology::class, 'technology_id', 'id');
     }
