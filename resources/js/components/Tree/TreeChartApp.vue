@@ -108,13 +108,10 @@
         },
         methods: {
             loadInfo(nameTechnology) {
-
                 axios.get(`/technology/${nameTechnology}/export`)
                 .then(res => {
                     this.infoTechnologyVideo = res.data[0].video;
                     console.log(this.infoTechnologyVideo)
-
-
 
                     // console.log(this.infoTechnology)
                     // console.log(res.data[0].video)
