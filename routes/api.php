@@ -19,6 +19,6 @@ use App\Http\Controllers\TechnologyController;
 //     return $request->user();
 // });
 
-Route::resource('tree',TreeController::class);
+// Route::resource('tree',TreeController::class);
 // Route::resource('technology',TechnologyController::class)->parameters(['technology' => 'name']);
 
