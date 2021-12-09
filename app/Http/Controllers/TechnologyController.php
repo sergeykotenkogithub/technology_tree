@@ -54,10 +54,14 @@ class TechnologyController extends Controller
     {
         $videos = $technology->video->toArray();
         $books = $technology->books->toArray();
+        $crib = $technology->crib->toArray();
+        $material = $technology->materials->toArray();
         $result = Technology::find($technology);
         $result = json_decode($result, TRUE);
         $result[0]['video'] = $videos;
         $result[0]['books'] = $books;
+        $result[0]['crib'] = $crib;
+        $result[0]['material'] = $material;
         $json = json_encode($result);
         return $json;
     }

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://technology_tree.loc/api/';
+// const API_URL = 'http://technology_tree.loc/api/';
+const API_URL = 'http://laravel/api/';
 
 class UserService {
   getPublicContent() {

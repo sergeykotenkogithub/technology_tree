@@ -26,4 +26,13 @@ class Technology extends Model
         return $this->hasMany(Book::class, 'technology_id', 'id');
     }
 
+    public function crib() : HasMany
+    {
+        return $this->hasMany(Crib::class, 'technology_id', 'id');
+    }
+
+    public function materials() : HasMany
+    {
+        return $this->hasMany(Material::class, 'technology_id', 'id');
+    }
 }

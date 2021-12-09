@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://technology_tree.loc/api/auth/";
+const API_URL = "http://laravel/api/auth/";
 
 class AuthService {
     login(user) {

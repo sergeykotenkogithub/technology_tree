@@ -3492,6 +3492,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3503,11 +3521,14 @@ __webpack_require__.r(__webpack_exports__);
       nameElement: null,
       infoTechnologyVideo: null,
       infoTechnologyBooks: null,
+      infoTechnologyCrib: null,
+      infoTechnologyMaterial: null,
       loader: null,
       treeData: {
         name: 'Frontend',
         image_url: "./assets/img/tree/frontend.jpg",
-        "class": ["rootNode"],
+        "class": ["ssss"],
+        extend: [0],
         children: [{
           name: 'HTML',
           image_url: "./assets/img/tree/html.svg"
@@ -3520,8 +3541,9 @@ __webpack_require__.r(__webpack_exports__);
             image_url: "./assets/img/tree/preproccesor.jpg",
             extend: [false],
             children: [{
-              name: 'SASS/SCSS',
-              image_url: "./assets/img/tree/preproccesor.jpg"
+              name: 'SCSS',
+              image_url: "./assets/img/tree/preproccesor.jpg",
+              extend: [false]
             }, {
               name: 'PostCSS',
               image_url: "./assets/img/tree/framework.jpg"
@@ -3566,7 +3588,7 @@ __webpack_require__.r(__webpack_exports__);
             name: 'Фреймворки',
             image_url: "./assets/img/tree/preproccesor.jpg",
             children: [{
-              name: 'React.js',
+              name: 'React',
               image_url: "./assets/img/tree/preproccesor.jpg",
               children: [{
                 name: 'Основы',
@@ -3581,13 +3603,10 @@ __webpack_require__.r(__webpack_exports__);
                   name: 'CRA',
                   image_url: "./assets/img/tree/framework.jpg"
                 }, {
-                  name: 'CRA',
-                  image_url: "./assets/img/tree/framework.jpg"
-                }, {
                   name: 'Apollo',
                   image_url: "./assets/img/tree/framework.jpg"
                 }, {
-                  name: 'Next.js',
+                  name: 'Next',
                   image_url: "./assets/img/tree/framework.jpg"
                 }, {
                   name: 'Storybook',
@@ -3598,13 +3617,13 @@ __webpack_require__.r(__webpack_exports__);
                 }]
               }]
             }, {
-              name: 'Vue JS',
+              name: 'Vue',
               image_url: "./assets/img/tree/framework.jpg",
               children: [{
                 name: 'Nuxt',
                 image_url: "./assets/img/tree/preproccesor.jpg"
               }, {
-                name: 'Vues',
+                name: 'VueX',
                 image_url: "./assets/img/tree/framework.jpg"
               }]
             }, {
@@ -3703,7 +3722,10 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("/technology/".concat(nameTechnology, "/export")).then(function (res) {
         _this2.infoTechnologyVideo = res.data[0].video;
         _this2.infoTechnologyBooks = res.data[0].books;
+        _this2.infoTechnologyCrib = res.data[0].crib;
+        _this2.infoTechnologyMaterial = res.data[0].material;
         console.log(res.data);
+        console.log(res.data[0].crib);
         _this2.loader = true;
         document.querySelector('.popup-wrapper').style.display = 'block';
         document.querySelector('.lds-default').style.display = 'none';
@@ -3953,7 +3975,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
-var API_URL = "http://technology_tree.loc/api/auth/";
+var API_URL = "http://laravel/api/auth/";
 
 var AuthService = /*#__PURE__*/function () {
   function AuthService() {
@@ -4023,8 +4045,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
+ // const API_URL = 'http://technology_tree.loc/api/';
 
-var API_URL = 'http://technology_tree.loc/api/';
+var API_URL = 'http://laravel/api/';
 
 var UserService = /*#__PURE__*/function () {
   function UserService() {
@@ -38125,6 +38148,42 @@ var render = function () {
                 _c("h2", [_vm._v(" Видео:")]),
                 _vm._v(" "),
                 _vm._l(_vm.infoTechnologyVideo, function (item) {
+                  return _c("div", { staticClass: "video_link" }, [
+                    _c("a", { attrs: { href: item.link, target: "_blank" } }, [
+                      _vm._v(" " + _vm._s(item.name_link) + " "),
+                    ]),
+                  ])
+                }),
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.infoTechnologyMaterial && _vm.infoTechnologyMaterial.length > 0
+          ? _c(
+              "div",
+              [
+                _c("h2", [_vm._v(" Материалы:")]),
+                _vm._v(" "),
+                _vm._l(_vm.infoTechnologyMaterial, function (item) {
+                  return _c("div", { staticClass: "video_link" }, [
+                    _c("a", { attrs: { href: item.link, target: "_blank" } }, [
+                      _vm._v(" " + _vm._s(item.name_link) + " "),
+                    ]),
+                  ])
+                }),
+              ],
+              2
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.infoTechnologyCrib && _vm.infoTechnologyCrib.length > 0
+          ? _c(
+              "div",
+              [
+                _c("h2", [_vm._v(" Шпаргалки:")]),
+                _vm._v(" "),
+                _vm._l(_vm.infoTechnologyCrib, function (item) {
                   return _c("div", { staticClass: "video_link" }, [
                     _c("a", { attrs: { href: item.link, target: "_blank" } }, [
                       _vm._v(" " + _vm._s(item.name_link) + " "),

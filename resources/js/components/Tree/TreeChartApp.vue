@@ -26,6 +26,24 @@
                     </div>
                 </div>
 
+                <!--      Материалы          -->
+
+                <div v-if="infoTechnologyMaterial && infoTechnologyMaterial.length > 0">
+                    <h2> Материалы:</h2>
+                    <div v-for="item in infoTechnologyMaterial" class="video_link">
+                        <a :href="item.link" target="_blank"> {{ item.name_link }} </a>
+                    </div>
+                </div>
+
+                <!--      Шпаргалки          -->
+
+                <div v-if="infoTechnologyCrib && infoTechnologyCrib.length > 0">
+                    <h2> Шпаргалки:</h2>
+                    <div v-for="item in infoTechnologyCrib" class="video_link">
+                        <a :href="item.link" target="_blank"> {{ item.name_link }} </a>
+                    </div>
+                </div>
+
                 <!--      Книги          -->
 
                 <div v-if="infoTechnologyBooks && infoTechnologyBooks.length > 0" >
@@ -53,12 +71,15 @@ export default {
             nameElement: null,
             infoTechnologyVideo: null,
             infoTechnologyBooks: null,
+            infoTechnologyCrib: null,
+            infoTechnologyMaterial: null,
             loader: null,
             treeData:
                 {
                     name: 'Frontend',
                     image_url: "./assets/img/tree/frontend.jpg",
-                    class: ["rootNode"],
+                    class: ["ssss"],
+                    extend: [0],
                     children: [
                         {
                             name: 'HTML',
@@ -75,8 +96,9 @@ export default {
                                     extend: [false],
                                     children: [
                                         {
-                                            name: 'SASS/SCSS',
-                                            image_url: "./assets/img/tree/preproccesor.jpg"
+                                            name: 'SCSS',
+                                            image_url: "./assets/img/tree/preproccesor.jpg",
+                                            extend: [false],
                                         },
                                         {
                                             name: 'PostCSS',
@@ -139,7 +161,7 @@ export default {
                                     image_url: "./assets/img/tree/preproccesor.jpg",
                                     children: [
                                         {
-                                            name: 'React.js',
+                                            name: 'React',
                                             image_url: "./assets/img/tree/preproccesor.jpg",
                                             children: [
                                                 {
@@ -159,15 +181,11 @@ export default {
                                                             image_url: "./assets/img/tree/framework.jpg"
                                                         },
                                                         {
-                                                            name: 'CRA',
-                                                            image_url: "./assets/img/tree/framework.jpg"
-                                                        },
-                                                        {
                                                             name: 'Apollo',
                                                             image_url: "./assets/img/tree/framework.jpg"
                                                         },
                                                         {
-                                                            name: 'Next.js',
+                                                            name: 'Next',
                                                             image_url: "./assets/img/tree/framework.jpg"
                                                         },
                                                         {
@@ -183,7 +201,7 @@ export default {
                                             ]
                                         },
                                         {
-                                            name: 'Vue JS',
+                                            name: 'Vue',
                                             image_url: "./assets/img/tree/framework.jpg",
                                             children: [
                                                 {
@@ -191,7 +209,7 @@ export default {
                                                     image_url: "./assets/img/tree/preproccesor.jpg"
                                                 },
                                                 {
-                                                    name: 'Vues',
+                                                    name: 'VueX',
                                                     image_url: "./assets/img/tree/framework.jpg"
                                                 },
                                             ]
@@ -301,7 +319,10 @@ export default {
                 .then(res => {
                     this.infoTechnologyVideo = res.data[0].video;
                     this.infoTechnologyBooks = res.data[0].books;
+                    this.infoTechnologyCrib = res.data[0].crib;
+                    this.infoTechnologyMaterial = res.data[0].material;
                     console.log(res.data)
+                    console.log(res.data[0].crib)
                     this.loader = true;
                     document.querySelector('.popup-wrapper').style.display = 'block';
                     document.querySelector('.lds-default').style.display = 'none';
