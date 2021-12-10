@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpaController;
+use App\Models\Profile;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,9 @@ use App\Http\Controllers\SpaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('profile/{user}/export', [App\Http\Controllers\ProfileController::class, 'export']);
 Route::get('technology/{technology}/export', [App\Http\Controllers\TechnologyController::class, 'export']);
+
 
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 

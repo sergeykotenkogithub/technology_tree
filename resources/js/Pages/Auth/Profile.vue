@@ -398,7 +398,7 @@
                                                 aria-valuemax="100"
                                             ></div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -411,9 +411,15 @@
 
 <script>
 import BaseButton from "../../components/Base/BaseButton.vue";
+import axios from 'axios';
 export default {
-    components: { BaseButton },
     name: "Profile",
+    data() {
+        return {
+            infoUser: null,
+            infoUserGender: null
+        }
+    },
     computed: {
         currentUser() {
             return this.$store.state.auth.user;
@@ -423,6 +429,21 @@ export default {
         if (!this.currentUser) {
             this.$router.push("/login");
         }
+        console.log(this.currentUser.id);
+        this.loadInfo(this.currentUser.id);
     },
+    methods: {
+        loadInfo(userId) {
+            axios.get(`/api/profile/${userId}`)
+                .then(res => {
+                    this.infoUser = res.data[0];
+                    if(res.data[0].gender && res.data[0].gender === 'М') {
+                        this.infoUserGender = 'Мужской';
+                    } else {
+                        this.infoUserGender = 'Женский';
+                    }
+            })
+        }
+    }
 };
 </script>

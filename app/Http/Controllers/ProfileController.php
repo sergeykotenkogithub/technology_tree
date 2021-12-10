@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
-use App\Models\Technology;
 
-class TechnologyController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function index()
+    public function index(Profile $profile)
     {
-//           return Technology::select(['name'])->get();
-//          return Technology::all();
+        dd($profile);
+        return Profile::all();
     }
 
     /**
@@ -43,33 +42,19 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+//    public function show($id)
+    public function show(Profile $profile)
     {
-        return Technology::find($id);
-    }
-
-    public function export(Technology $technology)
-    {
-        $videos = $technology->video->toArray();
-        $books = $technology->books->toArray();
-        $crib = $technology->crib->toArray();
-        $material = $technology->materials->toArray();
-        $result = Technology::find($technology);
-        $result = json_decode($result, TRUE);
-        $result[0]['video'] = $videos;
-        $result[0]['books'] = $books;
-        $result[0]['crib'] = $crib;
-        $result[0]['material'] = $material;
-        $json = json_encode($result);
-        return $json;
+        return Profile::find($profile);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int  $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -99,6 +84,4 @@ class TechnologyController extends Controller
     {
         //
     }
-
-
 }

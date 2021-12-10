@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Video extends Model
+class Crib extends Model
 {
-    use HasFactory;
-    protected $table = 'video';
+      use HasFactory;
+      protected $table = 'crib';
 
-    public function video() : BelongsTo
-    {
-        return $this->belongsTo(Technology::class, 'technology_id', 'id');
-    }
+      public function crib() : BelongsTo
+      {
+          return $this->belongsTo(Technology::class, 'technology_id', 'id');
+      }
 }

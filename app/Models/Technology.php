@@ -16,15 +16,23 @@ class Technology extends Model
         return 'name';
     }
 
-//    public function category(): BelongsTo
-//    {
-//        return $this->belongsTo(Category::class, 'category_id', 'id');
-//    }
-
     public function video() : HasMany
     {
         return $this->hasMany(Video::class, 'technology_id', 'id');
-//        dd('sssssss');
     }
 
+    public function books() : HasMany
+    {
+        return $this->hasMany(Book::class, 'technology_id', 'id');
+    }
+
+    public function crib() : HasMany
+    {
+        return $this->hasMany(Crib::class, 'technology_id', 'id');
+    }
+
+    public function materials() : HasMany
+    {
+        return $this->hasMany(Material::class, 'technology_id', 'id');
+    }
 }

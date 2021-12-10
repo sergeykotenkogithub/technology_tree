@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Technology;
 
-class TechnologyController extends Controller
+class BooksController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-//           return Technology::select(['name'])->get();
-//          return Technology::all();
+        //
     }
 
     /**
@@ -43,33 +40,18 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Technology::find($id);
-    }
-
-    public function export(Technology $technology)
-    {
-        $videos = $technology->video->toArray();
-        $books = $technology->books->toArray();
-        $crib = $technology->crib->toArray();
-        $material = $technology->materials->toArray();
-        $result = Technology::find($technology);
-        $result = json_decode($result, TRUE);
-        $result[0]['video'] = $videos;
-        $result[0]['books'] = $books;
-        $result[0]['crib'] = $crib;
-        $result[0]['material'] = $material;
-        $json = json_encode($result);
-        return $json;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int  $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -99,6 +81,4 @@ class TechnologyController extends Controller
     {
         //
     }
-
-
 }
