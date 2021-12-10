@@ -11,6 +11,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -38,8 +40,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Profile",
+  data: function data() {
+    return {
+      infoUser: null,
+      infoUserGender: null
+    };
+  },
   computed: {
     currentUser: function currentUser() {
       return this.$store.state.auth.user;
@@ -48,6 +79,24 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     if (!this.currentUser) {
       this.$router.push("/login");
+    }
+
+    console.log(this.currentUser.id);
+    this.loadInfo(this.currentUser.id);
+  },
+  methods: {
+    loadInfo: function loadInfo(userId) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/profile/".concat(userId)).then(function (res) {
+        _this.infoUser = res.data[0];
+
+        if (res.data[0].gender && res.data[0].gender === 'М') {
+          _this.infoUserGender = 'Мужской';
+        } else {
+          _this.infoUserGender = 'Женский';
+        }
+      });
     }
   }
 });
@@ -169,6 +218,37 @@ var render = function () {
       }),
       0
     ),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _c("div", [
+      _vm.infoUser
+        ? _c("p", [
+            _c("strong", [_vm._v("Name:")]),
+            _vm._v("\n            " + _vm._s(_vm.infoUser.name) + "\n        "),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.infoUser
+        ? _c("p", [
+            _c("strong", [_vm._v("Gender:")]),
+            _vm._v(
+              "\n            " + _vm._s(_vm.infoUserGender) + "\n        "
+            ),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.infoUser
+        ? _c("p", [
+            _c("strong", [_vm._v("Interesting:")]),
+            _vm._v(
+              "\n            " + _vm._s(_vm.infoUser.interesting) + "\n        "
+            ),
+          ])
+        : _vm._e(),
+    ]),
   ])
 }
 var staticRenderFns = [

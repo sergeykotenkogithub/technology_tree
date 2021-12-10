@@ -20,6 +20,8 @@ use App\Http\Controllers\AuthController;
 //     return $request->user();
 // });
 
+//
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -38,6 +40,9 @@ Route::get("all",function(){
     //     'Message' => 'Alibabba',
     // ]);
 });
+
+
+Route::resource('profile',ProfileController::class);
 
 // Route::resource('tree',TechnologyController::class);
 // Route::resource('technology',TechnologyController::class)->parameters(['technology' => 'name']);
