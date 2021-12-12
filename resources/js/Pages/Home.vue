@@ -1,53 +1,38 @@
 <template>
   <div>
-    <MainText
+    <section-main
       msg="С помощью нашего сайта вы пройдёте пути от новичка до профессионала. Здесь будет находится вся доступная информаци которая поможет вам стать фронтенд разработчиком."
     />
-    <!-- <div class="accordion">
-      <MyAccordion>
-        <template v-slot:title>
-          <span class="accordion__title">Accordion 1</span>
-          <span class="icon"><fa icon="plus" /></span>
-        </template>
-        <template v-slot:content>
-          <p>
-            <b>Lorem</b>, ipsum dolor sit amet consectetur adipisicing elit.
-            Quia, porro. Non a excepturi, voluptatibus ipsam magnam, eligendi,
-            accusantium ipsa quae quis praesentium voluptate saepe ullam sint ea
-            itaque consectetur impedit?
-          </p>
-        </template>
-      </MyAccordion>
-      <MyAccordion>
-        <template v-slot:title>
-          <span class="accordion__title">Accordion 2</span>
-          <span class="icon"><fa icon="plus" /></span>
-        </template>
-        <template v-slot:content>
-          <p>
-            <b>Lorem</b>, ipsum dolor sit amet consectetur adipisicing elit.
-            Quia, porro. Non a excepturi, voluptatibus ipsam magnam, eligendi,
-            accusantium ipsa quae quis praesentium voluptate saepe ullam sint ea
-            itaque consectetur impedit?
-          </p>
-        </template>
-      </MyAccordion>
-    </div>
-    <MyCard />
-    <MyCard />
-    <MyCard /> -->
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import MainText from "../components/MainText.vue";
+import SectionMain from '../components/Sections/SectionMain.vue';
+import UserService from '../services/user.service';
 
 export default {
   name: "Home",
   components: {
-    MainText,
+    SectionMain,
+  },data() {
+    return {
+      content: ''
+    };
   },
+  mounted() {
+    UserService.getPublicContent().then(
+      response => {
+        this.content = response.data;
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data) ||
+          error.message ||
+          error.toString();
+      }
+    );
+  }
 };
 </script>
 <style scoped lang="scss">
