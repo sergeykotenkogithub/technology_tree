@@ -16,11 +16,9 @@
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
-
-
 body {
     margin: 0;
-    font-family: "Nunito Sans",sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.5;
@@ -30,4 +28,8 @@ body {
 }
 .bg-primary {
     background-color: $primary !important;
+}
+
+a:hover {
+    text-decoration: none !important;
 }

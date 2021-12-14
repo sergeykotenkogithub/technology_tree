@@ -14,16 +14,16 @@
       </div>
       <div class="navbar__links">
         <router-link :to="{ name: 'About' }">
-          <BaseButton>О проекте</BaseButton></router-link
+          <BaseButton>About</BaseButton></router-link
         >
         <!-- <router-link :to="{ name: 'Tree' }"
           ><BaseButton>Дерево</BaseButton></router-link
         > -->
         <router-link :to="{ name: 'Frontend' }"
-          ><BaseButton>Фронтенд</BaseButton></router-link
+          ><BaseButton>Frontend</BaseButton></router-link
         >
         <router-link :to="{ name: 'Backend' }"
-          ><BaseButton>Бэкенд</BaseButton></router-link
+          ><BaseButton>Backend</BaseButton></router-link
         >
         <div>
           <BaseButton v-if="!currentUser" class="auth__btn">
