@@ -327,6 +327,7 @@ export default {
                     document.querySelector('.popup-wrapper').style.display = 'block';
                     document.querySelector('.lds-default').style.display = 'none';
                     console.log(this.infoTechnologyBooks.length > 0)
+
                     // console.log(res.data[0].video)
                     // console.log(JSON.parse(res.data[0].video).name)
                     // console.log(res.data[0])

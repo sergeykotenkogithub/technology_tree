@@ -11,9 +11,10 @@
             <router-link :to="{ name: 'About' }">
                 <BaseButton>О проекте</BaseButton></router-link
             >
-            <router-link :to="{ name: 'Tree' }"
-                ><BaseButton>Дерево</BaseButton></router-link
-            >
+<!--            <router-link :to="{ name: 'Tree' }"-->
+<!--                ><BaseButton>Дерево</BaseButton></router-link-->
+<!--            >   -->
+            <a href="/tree"><BaseButton>Дерево</BaseButton></a>
             <router-link :to="{ name: 'Frontend' }"
                 ><BaseButton>Фронтенд</BaseButton></router-link
             >

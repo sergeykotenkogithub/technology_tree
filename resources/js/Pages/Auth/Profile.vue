@@ -37,21 +37,21 @@
                                         class="rounded-circle"
                                         width="150"
                                     />
-                                    <div class="mt-3">
-                                        <h4>Андрей</h4>
+                                    <div class="mt-3" v-if="infoUser">
+                                        <h4>{{ infoUser.name }}</h4>
 
                                         <p class="text-grey mb-1">
-                                            Фронтенд разработчик
+                                            {{ infoUser.profession }}
                                         </p>
-                                        <p class="text-muted font-size-sm">
-                                            Москва, Россия
+                                        <p class="text-muted font-size-sm" v-if="infoUser">
+                                            {{ infoUser.address }}
                                         </p>
                                         <p>
                                             <strong>Email:</strong>
                                             {{ currentUser.email }}
                                         </p>
                                         <strong>Разрешения:</strong>
-                                        <ul>
+                                        <ul class="center-infoUser">
                                             <p>Администратор</p>
                                             <li
                                                 v-for="(
@@ -79,12 +79,13 @@
                         <div
                             class="card mt-3 bg-primary shadow-soft border-light text-center text-gray py-4 mb-5"
                         >
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group list-group-flush"  v-if="infoUser">
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                                 >
                                     <a
-                                        href="https://dribbble.com/TechTree"
+
+                                        :href="infoUser.website"
                                         target="_blank"
                                         class="btn btn-icon-only btn-pill btn-primary"
                                         aria-label="dribbble social link"
@@ -97,16 +98,16 @@
                                             class="fab fa-dribbble"
                                         ></span>
                                     </a>
-                                    <h6 class="mb-0">Website</h6>
-                                    <span class="text-gray"
-                                        >https:// Lestaber .com</span
-                                    >
+                                    <h6 class="mb-0 center-80">Website</h6>
+<!--                                    <span class="text-gray"-->
+<!--                                        >https:// Lestaber .com</span-->
+<!--                                    >-->
                                 </li>
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                                 >
                                     <a
-                                        href="https://github.com/TechTree"
+                                        :href="infoUser.github"
                                         target="_blank"
                                         class="btn btn-icon-only btn-pill btn-primary"
                                         aria-label="github social link"
@@ -119,14 +120,14 @@
                                             class="fab fa-github"
                                         ></span>
                                     </a>
-                                    <h6 class="mb-0">Github</h6>
-                                    <span class="text-gray"> Lestaber </span>
+                                    <h6 class="mb-0 center-80">Github</h6>
+<!--                                    <span class="text-gray"> Lestaber </span>-->
                                 </li>
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                                 >
                                     <a
-                                        href="https://twitter.com/TechTree"
+                                        :href="infoUser.twitter"
                                         target="_blank"
                                         class="btn btn-icon-only btn-pill btn-primary"
                                         aria-label="twitter social link"
@@ -139,14 +140,14 @@
                                             class="fab fa-twitter"
                                         ></span>
                                     </a>
-                                    <h6 class="mb-0">Twitter</h6>
-                                    <span class="text-gray">@ Lestaber </span>
+                                    <h6 class="mb-0 center-80">Twitter</h6>
+<!--                                    <span class="text-gray">@ Lestaber </span>-->
                                 </li>
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                                 >
                                     <a
-                                        href="https://instagram.com/TechTree"
+                                        :href="infoUser.instagram"
                                         target="_blank"
                                         class="btn btn-icon-only btn-pill btn-primary"
                                         aria-label="instagram social link"
@@ -159,14 +160,14 @@
                                             class="fab fa-instagram"
                                         ></span>
                                     </a>
-                                    <h6 class="mb-0">Instagram</h6>
-                                    <span class="text-gray"> Lestaber </span>
+                                    <h6 class="mb-0 center-80">Instagram</h6>
+<!--                                    <span class="text-gray"> Lestaber </span>-->
                                 </li>
                                 <li
                                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                                 >
                                     <a
-                                        href="https://www.facebook.com/TechTree/"
+                                        :href="infoUser.facebook"
                                         target="_blank"
                                         class="btn btn-icon-only btn-pill btn-primary"
                                         aria-label="facebook social link"
@@ -179,8 +180,8 @@
                                             class="fab fa-facebook"
                                         ></span>
                                     </a>
-                                    <h6 class="mb-0">Facebook</h6>
-                                    <span class="text-gray"> Lestaber </span>
+                                    <h6 class="mb-0 center-80">Facebook</h6>
+<!--                                    <span class="text-gray"> Lestaber </span>-->
                                 </li>
                             </ul>
                         </div>
@@ -194,8 +195,8 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Имя</h6>
                                     </div>
-                                    <div class="col-sm-9 text-grey">
-                                        Андрей Т.
+                                    <div class="col-sm-9 text-grey" v-if="infoUser">
+                                        {{ infoUser.name }}
                                     </div>
                                 </div>
                                 <hr />
@@ -212,8 +213,8 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Телефон</h6>
                                     </div>
-                                    <div class="col-sm-9 text-grey">
-                                        (123) 456-78-90
+                                    <div class="col-sm-9 text-grey" v-if="infoUser">
+                                        {{ infoUser.phone }}
                                     </div>
                                 </div>
                                 <hr />
@@ -221,8 +222,8 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Образование </h6>
                                     </div>
-                                    <div class="col-sm-9 text-grey">
-                                       Высшее
+                                    <div class="col-sm-9 text-grey" v-if="infoUser">
+                                       {{ infoUser.education }}
                                     </div>
                                 </div>
                                 <hr />
@@ -230,8 +231,8 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Профессия </h6>
                                     </div>
-                                    <div class="col-sm-9 text-grey">
-                                       Фронтенд разработчик
+                                    <div class="col-sm-9 text-grey" v-if="infoUser">
+                                        {{ infoUser.profession }}
                                     </div>
                                 </div>
                                 <hr />
@@ -239,18 +240,26 @@
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Адрес</h6>
                                     </div>
-                                    <div class="col-sm-9 text-grey">
-                                        Москва, Россия
+                                    <div class="col-sm-9 text-grey" v-if="infoUser">
+                                        {{ infoUser.address }}
                                     </div>
                                 </div>
                                 <hr />
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <base-button class="mt-4"
-                                            ><router-link to="/profile/edit">
+<!--                                        <BaseButton class="mt-4">-->
+<!--                                            <router-link to="/profile/edit">-->
+<!--                                            Редактировать</router-link-->
+<!--                                        >-->
+<!--                                        </BaseButton>-->
+<!--                                        <base-button class="mt-4"-->
+<!--                                     -->
+<!--                                        </base-button>-->
+                                        <BaseButton class="mt-4">
+                                            <router-link to="/profile/edit">
                                                 Редактировать</router-link
                                             >
-                                        </base-button>
+                                        </BaseButton>
                                     </div>
                                 </div>
                             </div>
@@ -410,10 +419,13 @@
 </template>
 
 <script>
-import BaseButton from "../../components/Base/BaseButton.vue";
+
+
 import axios from 'axios';
+import BaseButton from "../../components/Base/BaseButton";
 export default {
     name: "Profile",
+    components: {BaseButton},
     data() {
         return {
             infoUser: null,
@@ -442,8 +454,22 @@ export default {
                     } else {
                         this.infoUserGender = 'Женский';
                     }
+                    console.log(res.data[0]);
             })
         }
     }
 };
 </script>
+
+<style scoped>
+
+.center-infoUser {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.center-80 {
+    width: 80%;
+}
+
+</style>
